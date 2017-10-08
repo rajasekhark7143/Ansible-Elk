@@ -1,0 +1,3 @@
+---
+#log_remote_src: copy.txt
+#log_remote_dest: /tmp/testlogs.txt

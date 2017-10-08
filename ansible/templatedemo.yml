@@ -1,0 +1,10 @@
+---
+- hosts:  all
+  tasks:
+    - name:  "template demo"
+      template: 
+        src:  "{{ log_remote_src }}"
+        dest:  "{{ log_remote_dest }}" 
+        force:  yes 
+            
+

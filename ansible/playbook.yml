@@ -1,0 +1,9 @@
+--- 
+- 
+  become: true
+  hosts: remote
+- 
+  get_url: 
+    dest: /usr/share/kibana-5.3.1.rpm
+    url: "https://artifacts.elastic.co/downloads/kibana/kibana-5.3.1-x86_64.rpm"
+  name: "Copying kibana"

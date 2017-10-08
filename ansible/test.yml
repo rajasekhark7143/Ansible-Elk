@@ -1,0 +1,10 @@
+---
+ - hosts:  remote
+   user:  root
+   vars:
+    motd_welcome:  "Welcome to ansible testing"
+   tasks:
+   - name:  sample activity
+     copy: 
+      dest:  /etc/motd
+      content:  "{{ motd_welcome }}"

@@ -1,0 +1,4 @@
+[preferences]
+remote1_public_dns= ec2-34-215-139-237.us-west-2.compute.amazonaws.com
+ 
+local_public_dns= ec2-52-26-88-233.us-west-2.compute.amazonaws.com 
