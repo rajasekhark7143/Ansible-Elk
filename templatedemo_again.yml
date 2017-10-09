@@ -1,0 +1,17 @@
+---
+- hosts:  all
+  remote_user: ansible
+  become: yes 
+  tasks:
+    - name:  "template demo"
+      template: 
+        src:  "{{ log_remote_src }}"
+        dest:  "{{ log_remote_dest }}" 
+        force:  yes 
+    - name: "create directory"
+      file:   
+        path:  "{{ log_directory }}" 
+        owner:  logstash
+        group:  logstash        
+        recurse:  yes
+        state:  directory
