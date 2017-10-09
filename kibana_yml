@@ -1,0 +1,47 @@
+---
+ - hosts:  all
+   #vars:  
+   #  log_file:  /tmp/testlog.txt
+   tasks:
+    #- name: copy the file
+    #  copy:
+     #   src: /home/ansible/copy.txt
+      #  dest: "{{ log_file }}"
+    - name:  Download logstash rpm package
+      get_url:  
+        url:  https://artifacts.elastic.co/downloads/kibana/kibana-5.3.1-x86_64.rpm
+        dest:  /opt/kibana-5.3.1.rpm
+    - name: Install package.
+      yum:
+        name: /opt/kibana-5.3.1.rpm
+        state: present  
+    - name:  start the service 
+      service:
+        name:  kibana
+        state:  started
+    - name: copy the file
+      copy:
+        src: /home/ansible/copy.txt
+        dest:  /tmp/testkibana.txt
+    - name: restart kibana
+      systemd: 
+        name:  kibana
+        enabled:  yes
+        state:  restarted
+    #- name:  template for logstash.yml for remote
+     # template:  
+      #  src:  logstash.yml.j2
+       # dest:  /etc/logstash/logstash.yml
+        #force:  yes 
+   #   when:  ansible_default_ipv4.address == '172.31.23.242'
+    #- name:  template for logstash.yml for local
+     # template:
+      #  src:  logstash_local.yml.j2
+       # dest:  /etc/logstash/logstash.yml
+        #force:  yes
+      #when:  ansible_default_ipv4.address == '172.31.18.198'
+      #$notify:
+        #- restart logstash service
+  #handlers:
+   # - name: restart logstash service
+    #  service: name=logstash enabled=yes state=restarted 
