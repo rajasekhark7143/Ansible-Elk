@@ -1,0 +1,24 @@
+[logstash]
+localhost
+ip of logstash2
+[elasticsearch-all]
+ip of elasticsearch-m1
+ip of elasticsearch-m2
+ip of elasticsearch-m3
+ip of elasticsearch-d1
+ip of elasticsearch-d2
+ip of elasticsearch-ek1
+ip of elasticsearch-ek2
+[kibana]
+ip of kibana-ek1
+ip of kibana-ek2
+[elasticsearch-master]
+ip of elasticsearch-m1]
+ip of elasticsearch-m2
+ip of elasticsearch-m3
+[elasticsearch-data]
+ip of elasticsearch-d1
+ip of elasticsearch-d2
+[elasticsearch-ek1]
+ip of elasticsearch-ek1
+ip of elasticsearch-ek2

@@ -1,0 +1,13 @@
+ Configuration Required for ec2 discovery
+ network.host: _ec2_
+ 
+ discovery.zen.hosts_provider: ec2
+ discovery.ec2.groups: ["US_CPROD_MGMT_SG", "INT-US-ELK-PROD1-LOGSTASH-SG"]
+ cloud.aws.region: us-east-1
+ discovery.ec2.tag.ESCLUSTER: PROD1
+ 
+ 
+ Configuration Required for zen discovery
+ network.host: 10.1.149.189
+ 
+ discovery.zen.ping.unicast.hosts: ["10.1.149.204", "10.1.159.117", "10.1.149.180", "10.1.159.155", "10.1.148.64", "10.1.157.222", "10.1.149.189", "10.1.157.34", "10.1.148.106"]

@@ -1,0 +1,28 @@
+# installation and configuration of the service elasticsearch
+- name: Add elastic repository 
+  yum_repository:
+    name: elasticsearch
+    description: Elasticstack
+    baseurl:  https://artifacts.elastic.co/packages/5.x/yum
+	gpgkey:  https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    gpgcheck: yes
+	enabled:  yes
+- name: install the elasticsearch with specific version
+  yum:
+    name: elasticsearch-5.3.1
+    state: present	
+- name:  start the service of elasticsearch
+  service:
+    name: elasticsearch
+    enabled:  yes
+	state: started
+- name:  template for configuration of elasticsearch.yml file
+  template:  
+    src: /etc/ansible/templates/elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+    owner: elasticsearch
+    group: elasticsearch
+	force:  yes
+  notify:  restart elasticsearch service 	
+	
+ 	
