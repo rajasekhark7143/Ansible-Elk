@@ -1,0 +1,26 @@
+# installation and configuration of the service kibana
+- name: Add elastic repository 
+  yum_repository:
+    name: elastic
+    description: Elasticstack
+    baseurl:  "{{ kibana_baseurl }}"
+    gpgkey:  "{{ kibana_gpgkey }}"
+    gpgcheck: yes
+    enabled:  yes
+- name: install the kibana with specific version
+  yum:
+    name: kibana-5.3.1
+    state: present	
+- name:  start the service of kibana
+  service:
+    name: kibana
+    enabled:  yes
+    state: started
+- name:  template for configuration of kibana.yml file
+  template:  
+    src: /etc/ansible/kibana.yml.j2
+    dest: "{{ log_directory }}"
+    owner:  kibana
+    group:  kibana
+    force:  yes
+  notify:  restart kibana 	

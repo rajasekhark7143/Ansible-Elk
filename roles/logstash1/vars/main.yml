@@ -1,0 +1,12 @@
+---
+#variables for the elasticstack
+
+logstash_basurl:  https://artifacts.elastic.co/packages/5.x/yum
+
+logstash_gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+logstash_package_version: logstash-5.3.1
+
+logstash_ymlfile_destinatation: /etc/logstash/logstash.yml
+
+

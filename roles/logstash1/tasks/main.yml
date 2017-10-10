@@ -1,0 +1,28 @@
+# installation and configuration of the service logstash
+- name: Add elastic repository 
+  yum_repository:
+    name: logstash
+    description: Elasticstack
+    baseurl:  "{{ logstash_baseurl }}
+	gpgkey:  "{{ logstash_gpgkey }}"
+    gpgcheck: yes
+	enabled:  yes
+- name: install the logstash with specific version
+  yum:
+    name: logstash-5.3.1
+    state: present	
+- name:  start the service of logstash
+  service:
+    name: logstash
+    enabled:  yes
+	state: started
+- name:  template for configuration of logstash.yml file
+  template:  
+    src: /etc/ansible/templates/logstash.yml.j2
+    dest: /etc/logstash/logstash.yml
+    owner: logstash
+    group: logstash
+	force:  yes
+  notify:  restart logstash service 	
+	
+ 	

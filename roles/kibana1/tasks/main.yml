@@ -1,0 +1,28 @@
+# installation and configuration of the service kibana
+- name: Add elastic repository 
+  yum_repository:
+    name: elastic
+    description: Elasticstack
+    baseurl:  https://artifacts.elastic.co/packages/5.x/yum
+	gpgkey:  https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    gpgcheck: yes
+	enabled:  yes
+- name: install the kibana with specific version
+  yum:
+    name: kibana-5.3.1
+    state: present	
+- name:  start the service of kibana
+  service:
+    name: kibana
+    enabled:  yes
+	state: started
+- name:  template for configuration of kibana.yml file
+  template:  
+    src: /etc/ansible/templates/kibana.yml.j2
+    dest: /etc/kibana/kibana.yml
+    owner: kibana
+    group: kibana
+	force:  yes
+  notify:  restart kibana service 	
+	
+ 	
