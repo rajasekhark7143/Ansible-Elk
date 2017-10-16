@@ -1,13 +1,21 @@
 ---
 # variables for logstash/elasticsearch/kibana
 
-logstash_basurl:  https://artifacts.elastic.co/packages/5.x/yum
+kibana_basurl:  https://artifacts.elastic.co/packages/5.x/yum
 
-logstash_gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+kibana_gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
-logstash_package_version: logstash-5.3.1
+kibana_package_version: kibana-5.3.1
 
-logstash_ymlfile_destinatation:  /etc/logstash/logstash.yml
+kibana_ymlfile_destinatation:  /etc/kibana/kibana.yml
+
+elasticsearch_basurl:  https://artifacts.elastic.co/packages/5.x/yum
+
+elasticsearch_gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+elasticsearch_package_version: elasticsearch-5.3.1
+
+elasticsearch_ymlfile_destinatation:  /etc/elasticsearch/elasticsearch.yml
 
 
 Replace logstash and put the names for elasticsearch and kibana

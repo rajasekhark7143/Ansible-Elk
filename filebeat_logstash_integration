@@ -1,0 +1,1 @@
+sudo docker run -it --name filebeat-some --link first-logstash:logstash --rm -v "$PWD":/usr/share/logstash/pipeline logstash -f /usr/share/logstash/pipeline/beats.conf -p 5044:5044 -d docker.com/beats/filebeat:5.6.3
